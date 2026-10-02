@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const App = () => {
+  let [count, setCount] = useState(0);
+
   return (
     <div>
-      <h1>hey im app</h1>
+      <h1>const is - {count}</h1>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        Increment
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
