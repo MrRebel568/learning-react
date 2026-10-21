@@ -16,9 +16,15 @@ const From = ({ setUsers, users, updatedData, setToggle }) => {
 
   const formSubmit = (data) => {
     if (updatedData) {
-      setUsers((prev) =>
-        prev.map((val) => (val.id === updatedData.id ? { ...data } : val)),
+      // setUsers((prev) =>
+      //   prev.map((val) => (val.id === updatedData.id ? { ...data } : val)),
+      // );
+
+      let UpdateData = users.map((val) =>
+        val.id === updatedData.id ? { ...data } : val,
       );
+      setUsers(UpdateData);
+      localStorage.setItem("users", JSON.stringify(UpdateData));
     } else {
       let arr = [...users, { ...data, id: nanoid() }];
       console.log(arr);
