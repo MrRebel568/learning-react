@@ -16,11 +16,9 @@ const From = ({ setUsers, users, updatedData, setToggle }) => {
 
   const formSubmit = (data) => {
     if (updatedData) {
-      setUsers((prev)=>{
-        return prev.map((val)=>{
-            return val.id === updatedData.id ? {...data} : val
-        })
-      })
+      setUsers((prev) =>
+        prev.map((val) => (val.id === updatedData.id ? { ...data } : val)),
+      );
     } else {
       let arr = [...users, { ...data, id: nanoid() }];
       console.log(arr);
