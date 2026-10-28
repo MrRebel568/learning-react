@@ -7,6 +7,7 @@ export const MyShopProvider = ({ children }) => {
   const [cartItem, setCartItem] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
+  const [ApiData, setApiData] = useState([]);
 
   const deleteUser = (id) => {
     const filterUser = cartItem.filter((val) => {
@@ -27,6 +28,8 @@ export const MyShopProvider = ({ children }) => {
         setIsLoggedIn,
         setUsers,
         users,
+        ApiData,
+        setApiData,
       }}
     >
       {children}
