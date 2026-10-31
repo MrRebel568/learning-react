@@ -31,7 +31,7 @@ const App = () => {
           <CartScreen />
         </div>
       ) : (
-        <div className=" p-3 grid grid-cols-4 gap-4">
+        <div className="p-4 grid grid-cols-4 gap-4">
           {productsData.map((elem) => {
             let isInCart = cartItem.find((val) => val.id === elem.id);
 
@@ -41,6 +41,7 @@ const App = () => {
           })}
         </div>
       )}
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 p-3 sm:grid-cols-2 sm:gap-5 sm:p-4 lg:grid-cols-3 xl:grid-cols-4"></div>
     </div>
   );
 };

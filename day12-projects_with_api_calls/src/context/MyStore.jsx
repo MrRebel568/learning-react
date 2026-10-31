@@ -8,19 +8,25 @@ export let MyStoreProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItem, setCartItem] = useState([]);
 
-  const increementQuantity = (id) => {
+  const increementQuantity = (cartItemID) => {
     setCartItem((prev) => {
+      console.log(prev);
       return prev.map((val) => {
-        return val.id === id ? { ...val, quantity: val.quantity + 1 } : val;
+        return val.id === cartItemID
+          ? { ...val, quantity: val.quantity + 1 }
+          : val;
       });
     });
   };
 
-  const dicreementQuantity = (id) => {
+  const dicreementQuantity = (cartItemID) => {
     setCartItem((prev) => {
+      console.log(prev);
       return prev
         .map((val) => {
-          return val.id === id ? { ...val, quantity: val.quantity - 1 } : val;
+          return val.id === cartItemID
+            ? { ...val, quantity: val.quantity - 1 }
+            : val;
         })
         .filter((val) => val.quantity > 0);
     });
