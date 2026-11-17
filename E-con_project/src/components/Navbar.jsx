@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { ShoppingBag, Menu, User } from "lucide-react";
 import { MyShop } from "../context/MyContext";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
-  let { setIsCartOpen, cartItem } = useContext(MyShop);
+  let { setIsCartOpen, cartItem, currentUser } = useContext(MyShop);
   return (
     <nav className="w-full bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -14,12 +15,26 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
-          <p
+          {/* <p
             onClick={() => setIsCartOpen(false)}
             className="text-sm font-medium text-indigo-600 cursor-pointer"
           >
             Home
-          </p>
+          </p> */}
+          <NavLink
+            onClick={() => setIsCartOpen(false)}
+            className="text-sm font-medium text-indigo-600 cursor-pointer"
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className="text-sm font-medium text-indigo-600 cursor-pointer"
+            to="/about"
+          >
+            About
+          </NavLink>
+          
         </div>
 
         {/* Right Section */}
@@ -34,9 +49,9 @@ const Navbar = () => {
             </span>
           </button>
 
-          <button className="hidden sm:flex cursor-pointer items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition">
-            <User size={17} />
-            Login here
+          <button className="hidden font-semibold sm:flex rounded-xl cursor-pointer items-center gap-2 bg-black text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition">
+            <p className="p-2 rounded-xl bg-indigo-600 justify-between items-center"><User size={17} /></p>
+            {currentUser ? currentUser.name : "Login here"}
           </button>
 
           {/* Mobile Menu Icon */}

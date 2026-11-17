@@ -3,8 +3,13 @@ import { useForm } from "react-hook-form";
 import { MyShop } from "../context/MyContext";
 
 const Login = () => {
-  const { setToggleLoginPages, setIsLogginError, isLogginError, setIsLoggedIn } =
-    useContext(MyShop);
+  const {
+    setToggleLoginPages,
+    setIsLogginError,
+    isLogginError,
+    setIsLoggedIn,
+    setCurrentUser,
+  } = useContext(MyShop);
   const {
     register,
     handleSubmit,
@@ -24,6 +29,7 @@ const Login = () => {
     if (isLoggedUser) {
       setIsLogginError("");
       reset();
+      setCurrentUser(isLoggedUser);
       setIsLoggedIn(true);
     } else {
       setIsLogginError("Invalid email and password");

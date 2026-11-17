@@ -7,9 +7,11 @@ export let MyShopProvider = ({ children }) => {
   const [registerUserIn, setRegisterUserIn] = useState([]);
   const [isLogginError, setIsLogginError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
   const [productData, setProductData] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItem, setCartItem] = useState([]);
+  console.log(registerUserIn)
 
   const increementQuantity = (cartItemID) => {
     setCartItem((prev) => {
@@ -48,6 +50,8 @@ export let MyShopProvider = ({ children }) => {
         setIsLogginError,
         isLoggedIn,
         setIsLoggedIn,
+        currentUser,
+        setCurrentUser,
         productData,
         setProductData,
         isCartOpen,
